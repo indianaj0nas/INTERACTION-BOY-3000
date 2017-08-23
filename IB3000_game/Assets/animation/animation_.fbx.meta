@@ -1,0 +1,247 @@
+fileFormatVersion: 2
+guid: 4f05e7c5d9fcbc94e9da75043b10495f
+timeCreated: 1491998128
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: group1
+    100004: joint1
+    100006: joint10
+    100008: joint11
+    100010: joint12
+    100012: joint13
+    100014: joint14
+    100016: joint15
+    100018: joint16
+    100020: joint17
+    100022: joint18
+    100024: joint19
+    100026: joint2
+    100028: joint20
+    100030: joint21
+    100032: joint22
+    100034: joint23
+    100036: joint24
+    100038: joint3
+    100040: joint4
+    100042: joint5
+    100044: joint6
+    100046: joint7
+    100048: joint8
+    100050: joint9
+    100052: polySurface10
+    100054: polySurface12
+    100056: polySurface2
+    100058: polySurface4
+    100060: polySurface6
+    100062: polySurface8
+    400000: //RootNode
+    400002: group1
+    400004: joint1
+    400006: joint10
+    400008: joint11
+    400010: joint12
+    400012: joint13
+    400014: joint14
+    400016: joint15
+    400018: joint16
+    400020: joint17
+    400022: joint18
+    400024: joint19
+    400026: joint2
+    400028: joint20
+    400030: joint21
+    400032: joint22
+    400034: joint23
+    400036: joint24
+    400038: joint3
+    400040: joint4
+    400042: joint5
+    400044: joint6
+    400046: joint7
+    400048: joint8
+    400050: joint9
+    400052: polySurface10
+    400054: polySurface12
+    400056: polySurface2
+    400058: polySurface4
+    400060: polySurface6
+    400062: polySurface8
+    4300000: polySurface4
+    4300002: polySurface6
+    4300004: polySurface8
+    4300006: polySurface10
+    4300008: polySurface2
+    4300010: polySurface12
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: polySurface10
+    13700002: polySurface12
+    13700004: polySurface2
+    13700006: polySurface4
+    13700008: polySurface6
+    13700010: polySurface8
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/polySurface2
+        weight: 1
+      - path: group1/polySurface4
+        weight: 1
+      - path: group1/polySurface6
+        weight: 1
+      - path: group1/polySurface8
+        weight: 1
+      - path: group1/polySurface10
+        weight: 1
+      - path: group1/polySurface12
+        weight: 1
+      - path: joint6
+        weight: 1
+      - path: joint6/joint1
+        weight: 1
+      - path: joint6/joint1/joint2
+        weight: 1
+      - path: joint6/joint1/joint2/joint3
+        weight: 1
+      - path: joint6/joint1/joint2/joint3/joint4
+        weight: 1
+      - path: joint6/joint1/joint2/joint3/joint4/joint5
+        weight: 1
+      - path: joint6/joint7
+        weight: 1
+      - path: joint6/joint7/joint8
+        weight: 1
+      - path: joint6/joint7/joint8/joint9
+        weight: 1
+      - path: joint6/joint7/joint8/joint9/joint10
+        weight: 1
+      - path: joint6/joint7/joint8/joint9/joint10/joint11
+        weight: 1
+      - path: joint6/joint7/joint8/joint12
+        weight: 1
+      - path: joint6/joint7/joint8/joint12/joint13
+        weight: 1
+      - path: joint6/joint7/joint8/joint12/joint13/joint14
+        weight: 1
+      - path: joint6/joint7/joint8/joint12/joint13/joint14/joint15
+        weight: 1
+      - path: joint6/joint7/joint8/joint21
+        weight: 1
+      - path: joint6/joint7/joint8/joint21/joint22
+        weight: 1
+      - path: joint6/joint7/joint8/joint21/joint22/joint23
+        weight: 1
+      - path: joint6/joint7/joint8/joint21/joint22/joint23/joint24
+        weight: 1
+      - path: joint6/joint16
+        weight: 1
+      - path: joint6/joint16/joint17
+        weight: 1
+      - path: joint6/joint16/joint17/joint18
+        weight: 1
+      - path: joint6/joint16/joint17/joint18/joint19
+        weight: 1
+      - path: joint6/joint16/joint17/joint18/joint19/joint20
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

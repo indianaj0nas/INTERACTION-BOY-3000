@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 6927c73e7a3c57546bba977d7ba077e6
+timeCreated: 1490023043
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Milk Mustache BB
+  fontNames:
+  - Milk Mustache BB
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
