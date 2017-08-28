@@ -10,6 +10,7 @@ public class movePlayer : MonoBehaviour {
 	public int pressedShift;
 	public GameObject liftThis;
 	public float climbSpeed;
+	public float turnSpeed;
 
     private Rigidbody rb;
 	private bool canPoof;
@@ -40,7 +41,21 @@ public class movePlayer : MonoBehaviour {
 		GameObject thePickUpZone = GameObject.Find ("pickUpZone");
 		PickUp pickUp = thePickUpZone.GetComponent<PickUp> ();
 
-		rb.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, rb.velocity.y, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
+		//rb.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, rb.velocity.y, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
+
+		//
+		float moveHorizontal = Input.GetAxis("Horizontal");
+		float moveVertical = Input.GetAxis("Vertical");
+
+		Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
+		//transform.rotation = Quaternion.LookRotation(movement);
+		if (movement.sqrMagnitude > 0.1f)
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), turnSpeed);
+
+		transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+		//rb.AddForce(movement * speed, Space.World);
+
+		//
 
 		if (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f && currentlyClimbing == false) { anim.SetBool("Moving", true); }
 		else { anim.SetBool("Moving", false); }
