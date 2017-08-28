@@ -26,172 +26,174 @@ public class movePlayer : MonoBehaviour {
 		Physics.IgnoreLayerCollision (11, 11, true);
     }
 
-    /*void FixedUpdate()
-    {
-		
-
-		if(currentlyClimbing)
-		Debug.Log ("true");
-		if(!currentlyClimbing)
-			Debug.Log ("false");
-    } */
-
     void FixedUpdate()
     {
-		GameObject thePickUpZone = GameObject.Find ("pickUpZone");
-		PickUp pickUp = thePickUpZone.GetComponent<PickUp> ();
+       GameObject thePickUpZone = GameObject.Find("pickUpZone");
+       PickUp pickUp = thePickUpZone.GetComponent<PickUp>();
 
-		//rb.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, rb.velocity.y, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
+        Walk();
 
-		//
-		float moveHorizontal = Input.GetAxis("Horizontal");
-		float moveVertical = Input.GetAxis("Vertical");
+        Lifting(pickUp);
 
-		Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
-		//transform.rotation = Quaternion.LookRotation(movement);
-		if (movement.sqrMagnitude > 0.1f)
-			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), turnSpeed);
+        Jump();
+    }
 
-		transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
-		//rb.AddForce(movement * speed, Space.World);
-
-		//
-
-		if (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f && currentlyClimbing == false) { anim.SetBool("Moving", true); }
-		else { anim.SetBool("Moving", false); }
-
-		if (pickUp.pressedShift == 1) 
-		{ 
-			anim.SetBool ("holding", true);
-			Physics.IgnoreCollision (GetComponent<Collider>(), pickUp.liftThis.GetComponent<Collider>(), true);
-		}
-		if (pickUp.pressedShift == 0) 
-		{
-			anim.SetBool ("holding", false);
-			if (pickUp.liftThis != null)
-				Invoke("turnOnPhysics", .2f);
-		}
-	
-		RaycastHit hitDown;
-		float theDistanceDown;
-		Vector3 down = transform.TransformDirection(Vector3.down) * 1.3f;
-		Debug.DrawRay(transform.position, down, Color.red);
-		if (Physics.Raycast(transform.position, (down), out hitDown))
-		{
-			theDistanceDown = hitDown.distance;
-			if (rb.velocity.y < 1f && currentlyClimbing == false)
+    private void Lifting(PickUp pickUp)
+    {
+        if (pickUp.pressedShift == 1)
         {
-            anim.SetBool("Falling", true);
+            anim.SetBool("holding", true);
+            Physics.IgnoreCollision(GetComponent<Collider>(), pickUp.liftThis.GetComponent<Collider>(), true);
         }
-        else
+        if (pickUp.pressedShift == 0)
         {
-            anim.SetBool("Falling", false);
+            anim.SetBool("holding", false);
+            if (pickUp.liftThis != null)
+                Invoke("turnOnPhysics", .2f);
         }
+    }
 
-			if (rb.velocity.y > 1f && theDistanceDown > 1.3f && currentlyClimbing == false)
+    private void Jump()
+    {
+        RaycastHit hitDown;
+        float theDistanceDown;
+        Vector3 down = transform.TransformDirection(Vector3.down) * 1.3f;
+        Debug.DrawRay(transform.position, down, Color.red);
+        if (Physics.Raycast(transform.position, (down), out hitDown))
         {
-            anim.SetBool("Jumping", true);
-        }
-        else
-        {
-            anim.SetBool("Jumping", false);
-        }
-			if (theDistanceDown < 1.3f && currentlyClimbing == false)
+            theDistanceDown = hitDown.distance;
+            if (rb.velocity.y < 1f && currentlyClimbing == false)
+            {
+                anim.SetBool("Falling", true);
+            }
+            else
             {
                 anim.SetBool("Falling", false);
             }
 
-			if (theDistanceDown >= 6f) 
-			{
-				canPoof = true;
-			}
+            if (rb.velocity.y > 1f && theDistanceDown > 1.3f && currentlyClimbing == false)
+            {
+                anim.SetBool("Jumping", true);
+            }
+            else
+            {
+                anim.SetBool("Jumping", false);
+            }
+            if (theDistanceDown < 1.3f && currentlyClimbing == false)
+            {
+                anim.SetBool("Falling", false);
+            }
 
-			if (canPoof == true && theDistanceDown < 1.3f) 
-			{
-				poof.GetComponent<ParticleSystem> ().enableEmission = true;
-				StartCoroutine (stopPoof ());
-			}
+            if (theDistanceDown >= 6f)
+            {
+                canPoof = true;
+            }
 
-			if (Input.GetButtonDown("Jump") && theDistanceDown < 1.2f && hitDown.transform.gameObject.tag != "climb")
+            if (canPoof == true && theDistanceDown < 1.3f)
+            {
+                poof.GetComponent<ParticleSystem>().enableEmission = true;
+                StartCoroutine(stopPoof());
+            }
+
+            if (Input.GetButtonDown("Jump") && theDistanceDown < 1.2f && hitDown.transform.gameObject.tag != "climb")
             {
                 Vector3 jump = new Vector3(0.0f, jumpHeight, 0.0f);
-				rb.AddForce(jump);
+                rb.AddForce(jump);
             }
         }
     }
 
-	void OnTriggerExit(Collider col) 
-	{
-		if (col.gameObject.tag == "climb") 
-		{
-			currentlyClimbing = false;
-			rb.useGravity = true;
-			anim.SetBool ("climbing", false);
-		}
-		GameObject thePickUpZone = GameObject.Find ("pickUpZone");
-		PickUp pickUp = thePickUpZone.GetComponent<PickUp> ();
-		if (col.gameObject == pickUp.liftThis)
-		Physics.IgnoreCollision (GetComponent<Collider>(), pickUp.liftThis.GetComponent<Collider>(), false);
-	}
+    private void Walk()
+    {
+        //rb.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, rb.velocity.y, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
 
-	void OnTriggerStay(Collider theCollision) 
-	{
-		if (theCollision.gameObject.tag == "climb") {
-			//if (currentlyClimbing && Input.GetButton("PickUP"))
-			//	rb.velocity = new Vector3 (0f, 0f, 0f);
-		
-			if (Input.GetButton("PickUP")) 
-			{
-				currentlyClimbing = true;
-				anim.SetBool ("Jumping", false);
-				anim.enabled = true;
-				//liftThis.transform.parent = null;
+        //
+        float moveHorizontal = Input.GetAxis("Horizontal");
+        float moveVertical = Input.GetAxis("Vertical");
 
-				rb.useGravity = false;
-				rb.AddForce(0, climbSpeed * Time.deltaTime, 0, ForceMode.VelocityChange);
-			}
+        Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
+        if (movement.sqrMagnitude > 0.1f)
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), turnSpeed);
 
-			if (currentlyClimbing) 
-			{
-				rb.MovePosition(transform.position);
-				anim.SetBool ("climbing", true);
-				if (Input.GetButtonUp ("PickUP")) 
-				{
-					//anim.enabled = false;
-					rb.velocity = Vector3.zero;
-					rb.angularVelocity = Vector3.zero;
-				}
+        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
 
-				if (rb.velocity.magnitude < 0.09f ) 
-					anim.enabled = false;
-				
-				if (rb.velocity.magnitude >= 0.1f ) 
-				{
-					anim.enabled = true;
-				}
-			}
+        if (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f && currentlyClimbing == false) { anim.SetBool("Moving", true); }
+        else { anim.SetBool("Moving", false); }
+    }
 
+    void OnTriggerExit(Collider col)
+    {
+        StopClimbing(col);
+    }
 
+    private void StopClimbing(Collider col)
+    {
+        if (col.gameObject.tag == "climb")
+        {
+            currentlyClimbing = false;
+            rb.useGravity = true;
+            anim.SetBool("climbing", false);
+        }
+        GameObject thePickUpZone = GameObject.Find("pickUpZone");
+        PickUp pickUp = thePickUpZone.GetComponent<PickUp>();
+        if (col.gameObject == pickUp.liftThis)
+            Physics.IgnoreCollision(GetComponent<Collider>(), pickUp.liftThis.GetComponent<Collider>(), false);
+    }
 
-				//if (Input.GetButton("PickUP"))
-				//rb.velocity = new Vector3(0f, -6f, 0f);
-		}
-		//if (theCollision.gameObject.tag != "climb") 
-		//{
-		//	anim.SetBool ("climbing", false);
-		//	canJump = true;
-		//}
+    void OnTriggerStay(Collider theCollision)
+    {
+        StartClimbing(theCollision);
+    }
 
-		GameObject thePickUpZone = GameObject.Find ("pickUpZone");
-		PickUp pickUp = thePickUpZone.GetComponent<PickUp> ();
-		if (theCollision.gameObject == pickUp.liftThis) 
-		{
-			Physics.IgnoreCollision (GetComponent<Collider>(), pickUp.liftThis.GetComponent<Collider>(), true);
+    private void StartClimbing(Collider theCollision)
+    {
+        if (theCollision.gameObject.tag == "climb")
+        {
+            //if (currentlyClimbing && Input.GetButton("PickUP"))
+            //	rb.velocity = new Vector3 (0f, 0f, 0f);
 
-		}
-	}
+            if (Input.GetButton("PickUP"))
+            {
+                currentlyClimbing = true;
+                anim.SetBool("Jumping", false);
+                anim.enabled = true;
+                //liftThis.transform.parent = null;
 
-	public void turnOnPhysics() 
+                rb.useGravity = false;
+                rb.AddForce(0, climbSpeed * Time.deltaTime, 0, ForceMode.VelocityChange);
+            }
+
+            if (currentlyClimbing)
+            {
+                rb.MovePosition(transform.position);
+                anim.SetBool("climbing", true);
+                if (Input.GetButtonUp("PickUP"))
+                {
+                    //anim.enabled = false;
+                    rb.velocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                }
+
+                if (rb.velocity.magnitude < 0.09f)
+                    anim.enabled = false;
+
+                if (rb.velocity.magnitude >= 0.1f)
+                {
+                    anim.enabled = true;
+                }
+            }
+        }
+
+        GameObject thePickUpZone = GameObject.Find("pickUpZone");
+        PickUp pickUp = thePickUpZone.GetComponent<PickUp>();
+        if (theCollision.gameObject == pickUp.liftThis)
+        {
+            Physics.IgnoreCollision(GetComponent<Collider>(), pickUp.liftThis.GetComponent<Collider>(), true);
+
+        }
+    }
+
+    public void turnOnPhysics() 
 	{
 		GameObject thePickUpZone = GameObject.Find ("pickUpZone");
 		PickUp pickUp = thePickUpZone.GetComponent<PickUp> ();

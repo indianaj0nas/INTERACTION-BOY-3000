@@ -41,54 +41,63 @@ public class PickUp : MonoBehaviour {
 			liftThis = theCollision.gameObject;
 			rb = liftThis.GetComponent<Rigidbody> ();
 		}
-		/*if (theCollision.gameObject.tag != "canHold" && pressedShift == 0) 
-		{
-			closeEnough = false;
-		}*/
     }
 
-    void Update () {
-		if (liftThis != null) {
-			if (Input.GetButtonDown ("Jump")) {
-				throwAfterJumpTime = Time.time;
-			}
-			if (closeEnough == true) {
-				if (Input.GetButtonDown ("PickUP") && liftThis.layer == 9 && (Time.time - lastTime > 0.5f) && (Time.time - throwAfterJumpTime > 0.35f)) {
-					pickUpObject ();
-				}
-				if (Input.GetButtonDown ("PickUP") && liftThis.layer == 8 && (Time.time - lastTime > 0.5f) && (Time.time - throwAfterJumpTime > 0.35f)) {
-					pickUpObject ();
-				}
-			}
+    void LateUpdate ()
+    {
+        DelayAndLift();
+    }
 
-			if (pressedShift == 1) 
-			{
-				rotateIt ();
-				//if (liftThis == null)
-				Physics.IgnoreCollision (liftThis.GetComponent<Collider> (), BOY.GetComponent<Collider> (), true);
-			}
+    private void DelayAndLift()
+    {
+        if (liftThis != null)
+        {
+            if (Input.GetButtonDown("Jump"))
+            {
+                throwAfterJumpTime = Time.time;
+            }
+            if (closeEnough == true)
+            {
+                if (Input.GetButtonDown("PickUP") && liftThis.layer == 9 && (Time.time - lastTime > 0.5f) && (Time.time - throwAfterJumpTime > 0.35f))
+                {
+                    pickUpObject();
+                }
+                if (Input.GetButtonDown("PickUP") && liftThis.layer == 8 && (Time.time - lastTime > 0.5f) && (Time.time - throwAfterJumpTime > 0.35f))
+                {
+                    pickUpObject();
+                }
+            }
 
-			if (liftThis != null && pressedShift == 2) {
-				throwNow ();
-			}
-			if (liftThis == null)
-				pressedShift = 0;
+            if (pressedShift == 1)
+            {
+                rotateIt();
+                //if (liftThis == null)
+                Physics.IgnoreCollision(liftThis.GetComponent<Collider>(), BOY.GetComponent<Collider>(), true);
+            }
 
-			/*if (pressedShift != 1)
+            if (liftThis != null && pressedShift == 2)
+            {
+                throwNow();
+            }
+            if (liftThis == null)
+                pressedShift = 0;
+
+            /*if (pressedShift != 1)
 				liftThis = null;*/
 
-			if (!closeEnough && liftThis != null) {
-				//rb.useGravity = false;
-				rb = null;
-				liftThis.transform.parent = null;
-				liftThis = null;
-			}
-		}
-	}
+            if (!closeEnough && liftThis != null)
+            {
+                //rb.useGravity = false;
+                rb = null;
+                liftThis.transform.parent = null;
+                liftThis = null;
+            }
+        }
+    }
 
-	public void pickUpObject()
+    public void pickUpObject()
 	{
-		pressedShift = pressedShift + 1;
+        pressedShift = pressedShift + 1;
 		lastTime = Time.time;
 
 		rb.useGravity = false;
@@ -107,7 +116,7 @@ public class PickUp : MonoBehaviour {
 		{
 			liftThis.transform.position = gameObject.transform.position + new Vector3 (0f, 2f, 0f);
 		}
-	}
+    }
 
 	public void rotateIt ()
 	{
@@ -132,18 +141,12 @@ public class PickUp : MonoBehaviour {
 		}
 		/* The throw mechanic is here*/
 		if (liftThis.layer == 8 || liftThis.layer == 9) {
-			//rb.useGravity = true;
-			//liftThis.transform.parent = null;
-			//liftThis = null;
-			//rb.isKinematic = false;
 
 			if (Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) {
 				Vector3 throwDirection = Vector3.zero;
 
 				rb.useGravity = true;
 				rb.isKinematic = false;
-				//liftThis.transform.parent = null;
-				//liftThis = null;
 
 			if (Input.GetKey (KeyCode.A) || Input.GetAxis("Horizontal") == -1)
 					throwDirection += new Vector3 (-1, 0, 0);
@@ -171,11 +174,10 @@ public class PickUp : MonoBehaviour {
 				putDown ();
 				pressedShift = 0;
 			}
-			//Debug.Log(throwPower);
 		}
 	}
 
-public void putDown() 
+    public void putDown() 
 {
 	//	TooFarAway ();
 
@@ -184,8 +186,11 @@ public void putDown()
 		{
 			if (liftThis.layer == 8 || liftThis.layer == 9) 
 			{
-			//	liftThis.transform.parent = null;
-			//	liftThis = null;
+
+                liftThis.transform.position = transform.position + transform.forward * 1.5f;
+
+                liftThis.transform.parent = null;
+				//liftThis = null;
 				pressedShift = 0;
 				//Invoke ("BecomePhysical", 3f);
 
@@ -231,7 +236,6 @@ public void putDown()
 
     void OnTriggerExit(Collider liftThis)
     {
-		//TooFarAway2 ();
 
 		if (liftThis == null) 
 		{
