@@ -3,35 +3,38 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class movePlayer : MonoBehaviour {
-	
-	public Transform poof;
-    public float moveSpeed;
+
+    public Transform poof;
+    public float walkSpeed;
+    public float runSpeed;
     public float jumpHeight = 200.0f;
-	public int pressedShift;
-	public GameObject liftThis;
-	public float climbSpeed;
-	public float turnSpeed;
+    public int pressedShift;
+    public GameObject liftThis;
+    public float climbSpeed;
+    public float turnSpeed;
 
     private Rigidbody rb;
-	private bool canPoof;
-	private bool currentlyClimbing;
-	private bool canJump;
+    private bool canPoof;
+    private bool currentlyClimbing;
+    private bool canJump;
     Animator anim;
+    private float speed;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
-		poof.GetComponent<ParticleSystem> ().enableEmission = false;
-		Physics.IgnoreLayerCollision (11, 11, true);
+        poof.GetComponent<ParticleSystem>().enableEmission = false;
+        Physics.IgnoreLayerCollision(11, 11, true);
     }
 
     void FixedUpdate()
     {
-       GameObject thePickUpZone = GameObject.Find("pickUpZone");
-       PickUp pickUp = thePickUpZone.GetComponent<PickUp>();
+        GameObject thePickUpZone = GameObject.Find("pickUpZone");
+        PickUp pickUp = thePickUpZone.GetComponent<PickUp>();
 
         Walk();
+        Run();
 
         Lifting(pickUp);
 
@@ -115,10 +118,24 @@ public class movePlayer : MonoBehaviour {
         if (movement.sqrMagnitude > 0.1f)
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), turnSpeed);
 
-        transform.Translate(movement * moveSpeed * Time.deltaTime, Space.World);
+        transform.Translate(movement * speed * Time.deltaTime, Space.World);
 
         if (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f && currentlyClimbing == false) { anim.SetBool("Moving", true); }
         else { anim.SetBool("Moving", false); }
+    }
+
+    private void Run()
+    {
+        if (Input.GetButton("Run"))
+        {
+            speed = runSpeed;
+           // turnSpeed = 0.05f;
+        }
+        else if (!Input.GetButtonUp("Run"))
+        {
+            speed = walkSpeed;
+            //turnSpeed = 0.5f;
+        }
     }
 
     void OnTriggerExit(Collider col)

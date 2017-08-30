@@ -61,7 +61,7 @@ public class Cannon : MonoBehaviour {
 		gameObject.GetComponent<Rigidbody> ().AddRelativeForce (Vector3.back * 500);
 		if (pickUp.liftThis == gameObject) 
 		{
-			Player.GetComponent<Rigidbody> ().AddRelativeForce (Vector3.back * 2000);
+			//Player.GetComponent<Rigidbody> ().AddRelativeForce (Vector3.back * 2000);
 			Player.GetComponent<Rigidbody> ().AddRelativeForce (Player.transform.position -= transform.forward * Time.deltaTime * 50);
 		}
 		
