@@ -108,9 +108,6 @@ public class movePlayer : MonoBehaviour {
 
     private void Walk()
     {
-        //rb.velocity = new Vector3(Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime, rb.velocity.y, Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime);
-
-        //
         float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 

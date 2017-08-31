@@ -552,6 +552,12 @@ Prefab:
       propertyPath: runSpeed
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 136968283245583752, guid: 864d66a04929a1e40a9e78b69d2ab494,
+        type: 2}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: c504f85de39590049b4a130f7bddd4a7,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 864d66a04929a1e40a9e78b69d2ab494, type: 2}
   m_IsPrefabParent: 0

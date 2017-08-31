@@ -6,8 +6,8 @@ PhysicMaterial:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Stair
-  dynamicFriction: 1
-  staticFriction: 0.6
+  dynamicFriction: 5.94
+  staticFriction: 7.3
   bounciness: 0
   frictionCombine: 0
   bounceCombine: 0
