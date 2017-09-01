@@ -1,0 +1,243 @@
+fileFormatVersion: 2
+guid: ccfe5492c5383cf4d9965e3bd1ff1c79
+timeCreated: 1504276594
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Antenna.L
+    100002: Antenna.L_end
+    100004: Antenna.R
+    100006: Antenna.R_end
+    100008: Arm IK.L
+    100010: Arm IK.L_end
+    100012: Arm IK.R
+    100014: Arm IK.R_end
+    100016: Armature
+    100018: Chest
+    100020: COMBINED MESH
+    100022: Control
+    100024: Ear.L
+    100026: Ear.L_end
+    100028: Ear.R
+    100030: Ear.R_end
+    100032: Elbow.L
+    100034: Elbow.L_end
+    100036: Elbow.R
+    100038: Elbow.R_end
+    100040: Face
+    100042: Face_end
+    100044: Foot IK.L
+    100046: Foot IK.R
+    100048: Foot.L
+    100050: Foot.L_end
+    100052: Foot.R
+    100054: Foot.R_end
+    100056: Hair
+    100058: Hair_end
+    100060: Head
+    100062: Hip
+    100064: //RootNode
+    100066: Knee.L
+    100068: Knee.L_end
+    100070: Knee.R
+    100072: Knee.R_end
+    100074: Lower arm.L
+    100076: Lower arm.L_end
+    100078: Lower arm.R
+    100080: Lower arm.R_end
+    100082: Lower leg.L
+    100084: Lower leg.L_end
+    100086: Lower leg.R
+    100088: Lower leg.R_end
+    100090: Neck
+    100092: Upper arm.L
+    100094: Upper arm.R
+    100096: Upper leg.L
+    100098: Upper leg.R
+    400000: Antenna.L
+    400002: Antenna.L_end
+    400004: Antenna.R
+    400006: Antenna.R_end
+    400008: Arm IK.L
+    400010: Arm IK.L_end
+    400012: Arm IK.R
+    400014: Arm IK.R_end
+    400016: Armature
+    400018: Chest
+    400020: COMBINED MESH
+    400022: Control
+    400024: Ear.L
+    400026: Ear.L_end
+    400028: Ear.R
+    400030: Ear.R_end
+    400032: Elbow.L
+    400034: Elbow.L_end
+    400036: Elbow.R
+    400038: Elbow.R_end
+    400040: Face
+    400042: Face_end
+    400044: Foot IK.L
+    400046: Foot IK.R
+    400048: Foot.L
+    400050: Foot.L_end
+    400052: Foot.R
+    400054: Foot.R_end
+    400056: Hair
+    400058: Hair_end
+    400060: Head
+    400062: Hip
+    400064: //RootNode
+    400066: Knee.L
+    400068: Knee.L_end
+    400070: Knee.R
+    400072: Knee.R_end
+    400074: Lower arm.L
+    400076: Lower arm.L_end
+    400078: Lower arm.R
+    400080: Lower arm.R_end
+    400082: Lower leg.L
+    400084: Lower leg.L_end
+    400086: Lower leg.R
+    400088: Lower leg.R_end
+    400090: Neck
+    400092: Upper arm.L
+    400094: Upper arm.R
+    400096: Upper leg.L
+    400098: Upper leg.R
+    4300000: COMBINED MESH
+    7400000: Armature|ArmatureAction
+    7400002: Armature|idle
+    9500000: //RootNode
+    13700000: COMBINED MESH
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|ArmatureAction
+      takeName: Armature|ArmatureAction
+      firstFrame: 0
+      lastFrame: 45
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|idle
+      takeName: Armature|idle
+      firstFrame: 0
+      lastFrame: 1
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 0.5
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
