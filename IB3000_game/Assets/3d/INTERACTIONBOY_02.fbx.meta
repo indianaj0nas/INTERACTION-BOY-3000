@@ -1,113 +1,78 @@
 fileFormatVersion: 2
-guid: ccfe5492c5383cf4d9965e3bd1ff1c79
-timeCreated: 1504276594
+guid: b2e11d9a267a9a04889b0e57db2649f5
+timeCreated: 1504551563
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
     100000: Antenna.L
-    100002: Antenna.L_end
-    100004: Antenna.R
-    100006: Antenna.R_end
-    100008: Arm IK.L
-    100010: Arm IK.L_end
-    100012: Arm IK.R
-    100014: Arm IK.R_end
-    100016: Armature
-    100018: Chest
-    100020: COMBINED MESH
-    100022: Control
-    100024: Ear.L
-    100026: Ear.L_end
-    100028: Ear.R
-    100030: Ear.R_end
-    100032: Elbow.L
-    100034: Elbow.L_end
-    100036: Elbow.R
-    100038: Elbow.R_end
-    100040: Face
-    100042: Face_end
-    100044: Foot IK.L
-    100046: Foot IK.R
-    100048: Foot.L
-    100050: Foot.L_end
-    100052: Foot.R
-    100054: Foot.R_end
-    100056: Hair
-    100058: Hair_end
-    100060: Head
-    100062: Hip
-    100064: //RootNode
-    100066: Knee.L
-    100068: Knee.L_end
-    100070: Knee.R
-    100072: Knee.R_end
-    100074: Lower arm.L
-    100076: Lower arm.L_end
-    100078: Lower arm.R
-    100080: Lower arm.R_end
-    100082: Lower leg.L
-    100084: Lower leg.L_end
-    100086: Lower leg.R
-    100088: Lower leg.R_end
-    100090: Neck
-    100092: Upper arm.L
-    100094: Upper arm.R
-    100096: Upper leg.L
-    100098: Upper leg.R
+    100002: Antenna.R
+    100004: Arm IK.L
+    100006: Arm IK.R
+    100008: Armature
+    100010: Chest
+    100012: COMBINED MESH
+    100014: Control
+    100016: Ear.L
+    100018: Ear.R
+    100020: Elbow.L
+    100022: Elbow.R
+    100024: Face
+    100026: Foot IK.L
+    100028: Foot IK.R
+    100030: Foot.L
+    100032: Foot.R
+    100034: Hair
+    100036: Head
+    100038: Hip
+    100040: //RootNode
+    100042: Knee.L
+    100044: Knee.R
+    100046: Lower arm.L
+    100048: Lower arm.R
+    100050: Lower leg.L
+    100052: Lower leg.R
+    100054: Neck
+    100056: Upper arm.L
+    100058: Upper arm.R
+    100060: Upper leg.L
+    100062: Upper leg.R
     400000: Antenna.L
-    400002: Antenna.L_end
-    400004: Antenna.R
-    400006: Antenna.R_end
-    400008: Arm IK.L
-    400010: Arm IK.L_end
-    400012: Arm IK.R
-    400014: Arm IK.R_end
-    400016: Armature
-    400018: Chest
-    400020: COMBINED MESH
-    400022: Control
-    400024: Ear.L
-    400026: Ear.L_end
-    400028: Ear.R
-    400030: Ear.R_end
-    400032: Elbow.L
-    400034: Elbow.L_end
-    400036: Elbow.R
-    400038: Elbow.R_end
-    400040: Face
-    400042: Face_end
-    400044: Foot IK.L
-    400046: Foot IK.R
-    400048: Foot.L
-    400050: Foot.L_end
-    400052: Foot.R
-    400054: Foot.R_end
-    400056: Hair
-    400058: Hair_end
-    400060: Head
-    400062: Hip
-    400064: //RootNode
-    400066: Knee.L
-    400068: Knee.L_end
-    400070: Knee.R
-    400072: Knee.R_end
-    400074: Lower arm.L
-    400076: Lower arm.L_end
-    400078: Lower arm.R
-    400080: Lower arm.R_end
-    400082: Lower leg.L
-    400084: Lower leg.L_end
-    400086: Lower leg.R
-    400088: Lower leg.R_end
-    400090: Neck
-    400092: Upper arm.L
-    400094: Upper arm.R
-    400096: Upper leg.L
-    400098: Upper leg.R
+    400002: Antenna.R
+    400004: Arm IK.L
+    400006: Arm IK.R
+    400008: Armature
+    400010: Chest
+    400012: COMBINED MESH
+    400014: Control
+    400016: Ear.L
+    400018: Ear.R
+    400020: Elbow.L
+    400022: Elbow.R
+    400024: Face
+    400026: Foot IK.L
+    400028: Foot IK.R
+    400030: Foot.L
+    400032: Foot.R
+    400034: Hair
+    400036: Head
+    400038: Hip
+    400040: //RootNode
+    400042: Knee.L
+    400044: Knee.R
+    400046: Lower arm.L
+    400048: Lower arm.R
+    400050: Lower leg.L
+    400052: Lower leg.R
+    400054: Neck
+    400056: Upper arm.L
+    400058: Upper arm.R
+    400060: Upper leg.L
+    400062: Upper leg.R
     4300000: COMBINED MESH
-    7400000: Armature|ArmatureAction
-    7400002: Armature|idle
+    7400000: Armature|IDLE
+    7400002: Armature|Run
+    7400004: Armature|T_pose
     9500000: //RootNode
     13700000: COMBINED MESH
   materials:
@@ -135,8 +100,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|ArmatureAction
-      takeName: Armature|ArmatureAction
+      name: Armature|IDLE
+      takeName: Armature|IDLE
       firstFrame: 0
       lastFrame: 45
       wrapMode: 0
@@ -163,8 +128,36 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Armature|idle
-      takeName: Armature|idle
+      name: Armature|Run
+      takeName: Armature|Run
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|T_pose
+      takeName: Armature|T_pose
       firstFrame: 0
       lastFrame: 1
       wrapMode: 0

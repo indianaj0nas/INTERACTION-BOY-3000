@@ -67,7 +67,7 @@ Material:
     - _Glossiness: 0.797
     - _GlossyReflections: 1
     - _LightSmoothness: 0
-    - _LightThreshold: 0.404
+    - _LightThreshold: 0.436
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -75,9 +75,9 @@ Material:
     - _Parallax: 0.02
     - _RimIntensity: 0
     - _RimSize: 3
-    - _RimSmoothness: 0.5
-    - _ShadowIntensity: 1.18
-    - _Shininess: 0.275
+    - _RimSmoothness: 0.841
+    - _ShadowIntensity: 1.21
+    - _Shininess: 1
     - _SmoothnessTextureChannel: 1
     - _SpecularHighlights: 1
     - _SpecularIntensity: 0
