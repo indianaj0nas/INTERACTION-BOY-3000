@@ -115,7 +115,9 @@ public class movePlayer : MonoBehaviour {
         if (movement.sqrMagnitude > 0.1f)
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(movement), turnSpeed);
 
-        transform.Translate(movement * speed * Time.deltaTime, Space.World);
+        //transform.Translate(movement * speed * Time.deltaTime, Space.World);
+        rb.MovePosition(transform.position + movement * speed * Time.deltaTime);
+        //rb.velocity = (movement) * 100 * Time.deltaTime;
 
         if (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f && currentlyClimbing == false) { anim.SetBool("Moving", true); }
         else { anim.SetBool("Moving", false); }
