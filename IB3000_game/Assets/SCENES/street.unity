@@ -1902,7 +1902,7 @@ MonoBehaviour:
   transparentMaterials:
   - {fileID: 2100000, guid: 0eb66f7c98e7d5c48a33bf16deb3e2f8, type: 2}
   nonTransparentMaterials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   alphaStartValues:
   - 1
   eDisableMesh: 0
@@ -1946,18 +1946,6 @@ Prefab:
     - target: {fileID: 4213994212401274, guid: 53fecafd2493ea143bae5a6e166199b2, type: 2}
       propertyPath: m_RootOrder
       value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 4213994212401274, guid: 53fecafd2493ea143bae5a6e166199b2, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.1159145
-      objectReference: {fileID: 0}
-    - target: {fileID: 4213994212401274, guid: 53fecafd2493ea143bae5a6e166199b2, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.1159148
-      objectReference: {fileID: 0}
-    - target: {fileID: 4213994212401274, guid: 53fecafd2493ea143bae5a6e166199b2, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.1159148
       objectReference: {fileID: 0}
     - target: {fileID: 1800577280853182, guid: 53fecafd2493ea143bae5a6e166199b2, type: 2}
       propertyPath: m_Name
@@ -4845,20 +4833,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 8
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
@@ -7955,20 +7929,6 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 0
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0

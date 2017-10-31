@@ -12,13 +12,19 @@ public class movePlayer : MonoBehaviour {
     public GameObject liftThis;
     public float climbSpeed;
     public float turnSpeed;
+    public float groundDistance;
+    public LayerMask Ground;
 
     private Rigidbody rb;
     private bool canPoof;
     private bool currentlyClimbing;
     private bool canJump;
+  //  private bool _isGrounded;
     Animator anim;
     private float speed;
+    private CharacterController _controller;
+    private Transform _groundChecker;
+    
 
     void Awake()
     {
@@ -26,9 +32,11 @@ public class movePlayer : MonoBehaviour {
         anim = GetComponent<Animator>();
         poof.GetComponent<ParticleSystem>().enableEmission = false;
         Physics.IgnoreLayerCollision(11, 11, true);
+        _controller = GetComponent<CharacterController>();
+        _groundChecker = transform.Find("GroundChecker");
     }
 
-    void FixedUpdate()
+    void Update()
     {
         GameObject thePickUpZone = GameObject.Find("pickUpZone");
         PickUp pickUp = thePickUpZone.GetComponent<PickUp>();
@@ -38,7 +46,8 @@ public class movePlayer : MonoBehaviour {
 
         Lifting(pickUp);
 
-        Jump();
+        //Jump();
+        FakeGravity();
     }
 
     private void Lifting(PickUp pickUp)
@@ -108,7 +117,7 @@ public class movePlayer : MonoBehaviour {
 
     private void Walk()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
+        /*float moveHorizontal = Input.GetAxis("Horizontal");
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0, moveVertical);
@@ -117,10 +126,33 @@ public class movePlayer : MonoBehaviour {
 
         //transform.Translate(movement * speed * Time.deltaTime, Space.World);
         rb.MovePosition(transform.position + movement * speed * Time.deltaTime);
-        //rb.velocity = (movement) * 100 * Time.deltaTime;
+        //rb.velocity = (movement) * 100 * Time.deltaTime;*/
+
+        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        _controller.Move(move * Time.deltaTime * speed);
+        if (move != Vector3.zero)
+            transform.forward = move;
 
         if (Input.GetAxis("Horizontal") != 0f || Input.GetAxis("Vertical") != 0f && currentlyClimbing == false) { anim.SetBool("Moving", true); }
         else { anim.SetBool("Moving", false); }
+    }
+
+    void FakeGravity()
+    {
+        Vector3 _velocity = _controller.velocity;
+        _velocity.y += -50f * Time.deltaTime;
+        _controller.Move(_velocity * Time.deltaTime);
+
+        bool _isGrounded;
+
+        _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, Ground, QueryTriggerInteraction.Ignore);
+        if (_isGrounded && _velocity.y < 0)
+            _velocity.y = 0f;
+    }
+
+    void NewJump()
+    {
+
     }
 
     private void Run()
