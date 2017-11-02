@@ -21,6 +21,7 @@ public class player_Movement : MonoBehaviour {
     public LayerMask Ground;
     public Vector3 drag;
 
+    public float sprintDelay;
     private float turnSpeed;
     private float gravity;
     private float speed;
@@ -41,6 +42,7 @@ public class player_Movement : MonoBehaviour {
         gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
+        sprintDelay = 0;
     }
 
     void Update()
@@ -53,6 +55,7 @@ public class player_Movement : MonoBehaviour {
 
     private void Movement()
     {
+
         if (Input.GetButton("Run"))
         {
             speed = runSpeed;
