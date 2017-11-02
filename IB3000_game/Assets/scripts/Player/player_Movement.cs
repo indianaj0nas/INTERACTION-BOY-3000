@@ -16,10 +16,12 @@ public class player_Movement : MonoBehaviour {
     public float accelerationTimeGrounded;
     public float accelerationTimeAirborne;
     public int pressedShift;
-    public float turnSpeed;
+    public float normalTurnSpeed;
+    public float otherTurnSpeed;
     public LayerMask Ground;
     public Vector3 drag;
 
+    private float turnSpeed;
     private float gravity;
     private float speed;
     private float maxJumpVelocity;
@@ -54,12 +56,12 @@ public class player_Movement : MonoBehaviour {
         if (Input.GetButton("Run"))
         {
             speed = runSpeed;
-            // turnSpeed = 0.05f;
+            turnSpeed = otherTurnSpeed;
         }
         else if (!Input.GetButtonUp("Run"))
         {
             speed = walkSpeed;
-            //turnSpeed = 0.5f;
+            turnSpeed = normalTurnSpeed;
         }
 
         float deadzone = 0.5f;
@@ -71,10 +73,11 @@ public class player_Movement : MonoBehaviour {
 
         Vector3 targetVelocity = stickInput * speed;
         _velocity = Vector3.SmoothDamp(_velocity, targetVelocity, ref velocitySmoothing, (_isGrounded) ? accelerationTimeGrounded : accelerationTimeAirborne);
-        _controller.Move(stickInput * Time.deltaTime * speed);
+        //_controller.Move(stickInput * Time.deltaTime * speed);
 
         if (stickInput != Vector3.zero)
         {
+            _controller.Move(transform.forward * Time.deltaTime * speed);
             Quaternion targetRotation = Quaternion.LookRotation(stickInput, Vector3.up);
         transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
         }
@@ -110,6 +113,10 @@ public class player_Movement : MonoBehaviour {
                 _velocity.y = minJumpVelocity;
         }
 
+        if (Physics.Raycast(transform.position, Vector3.up, 1.4f))
+        {
+            _velocity.y = 0f;
+        }
         //gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
 
     }
