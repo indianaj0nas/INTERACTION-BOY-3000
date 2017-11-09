@@ -798,45 +798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!1 &48125767
 GameObject:
   m_ObjectHideFlags: 0
@@ -902,7 +863,7 @@ GameObject:
   - component: {fileID: 55878232}
   m_Layer: 1
   m_Name: Cylinder
-  m_TagString: Untagged
+  m_TagString: climb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1551,45 +1512,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!1 &198240875
 GameObject:
   m_ObjectHideFlags: 0
@@ -1879,45 +1801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!1 &269189745
 GameObject:
   m_ObjectHideFlags: 0
@@ -1931,7 +1814,7 @@ GameObject:
   - component: {fileID: 269189746}
   m_Layer: 1
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: climb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1994,12 +1877,44 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 269189745}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.79, y: -1.39, z: -19.47}
+  m_LocalPosition: {x: 1.3200417, y: -2.4927673, z: -0.6350899}
   m_LocalScale: {x: 3.5832245, y: 4.0833607, z: 1}
   m_Children: []
+  m_Father: {fileID: 272586196}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &272586195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 272586196}
+  m_Layer: 0
+  m_Name: GameObject (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &272586196
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 272586195}
+  m_LocalRotation: {x: -0, y: -0.42972147, z: -0, w: 0.90296155}
+  m_LocalPosition: {x: -53.110043, y: 1.1027675, z: -19.48}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 269189749}
+  - {fileID: 1560485799}
+  - {fileID: 297994428}
+  - {fileID: 1855828271}
   m_Father: {fileID: 0}
   m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -50.9, z: 0}
 --- !u!1001 &282501326
 Prefab:
   m_ObjectHideFlags: 0
@@ -2106,7 +2021,7 @@ GameObject:
   - component: {fileID: 297994425}
   m_Layer: 1
   m_Name: Cube (2)
-  m_TagString: Untagged
+  m_TagString: climb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2169,11 +2084,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 297994424}
   m_LocalRotation: {x: -0.38396823, y: -0, z: -0, w: 0.92334634}
-  m_LocalPosition: {x: -51.79, y: 3.79, z: -20.95}
+  m_LocalPosition: {x: 1.3200417, y: 2.6872325, z: -2.1150913}
   m_LocalScale: {x: 3.5832245, y: 4.0833607, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_Father: {fileID: 272586196}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -45.159, y: 0, z: 0}
 --- !u!1 &313117605
 GameObject:
@@ -2997,45 +2912,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!4 &551641093 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4051665901487410, guid: f5690bb5305d5da46b327cc852a374ea,
@@ -3067,45 +2943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!1 &639256669
 GameObject:
   m_ObjectHideFlags: 0
@@ -4099,18 +3936,6 @@ Prefab:
     - target: {fileID: 4233687689825382, guid: 83fa31a84e77b9144a70e36c70396e46, type: 2}
       propertyPath: m_RootOrder
       value: 12
-      objectReference: {fileID: 0}
-    - target: {fileID: 4233687689825382, guid: 83fa31a84e77b9144a70e36c70396e46, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.0000007
-      objectReference: {fileID: 0}
-    - target: {fileID: 4233687689825382, guid: 83fa31a84e77b9144a70e36c70396e46, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.0000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 4233687689825382, guid: 83fa31a84e77b9144a70e36c70396e46, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.0000002
       objectReference: {fileID: 0}
     - target: {fileID: 1335703852795376, guid: 83fa31a84e77b9144a70e36c70396e46, type: 2}
       propertyPath: m_Name
@@ -5893,45 +5718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!4 &1305119644 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4517622104768930, guid: 69d4909677e5633458176fee68f5ae0e,
@@ -6161,45 +5947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!1001 &1358348376
 Prefab:
   m_ObjectHideFlags: 0
@@ -6586,45 +6333,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!1 &1410531729
 GameObject:
   m_ObjectHideFlags: 0
@@ -6889,45 +6597,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!4 &1465202262 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4961366604007984, guid: c94daaa0225d62048bb8f6b2e61b911e,
@@ -7179,45 +6848,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!1 &1560485795
 GameObject:
   m_ObjectHideFlags: 0
@@ -7231,7 +6861,7 @@ GameObject:
   - component: {fileID: 1560485796}
   m_Layer: 1
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: climb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7294,11 +6924,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1560485795}
   m_LocalRotation: {x: -0.18723543, y: -0, z: -0, w: 0.98231506}
-  m_LocalPosition: {x: -51.79, y: 2.24, z: -20.16}
+  m_LocalPosition: {x: 1.3200417, y: 1.1372325, z: -1.3250904}
   m_LocalScale: {x: 3.5832245, y: 4.0833607, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_Father: {fileID: 272586196}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -21.583, y: 0, z: 0}
 --- !u!1001 &1562944403
 Prefab:
@@ -7894,45 +7524,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!4 &1678785278 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4213994212401274, guid: 53fecafd2493ea143bae5a6e166199b2,
@@ -8714,7 +8305,7 @@ GameObject:
   - component: {fileID: 1855828268}
   m_Layer: 1
   m_Name: Cube (3)
-  m_TagString: Untagged
+  m_TagString: climb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8777,11 +8368,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1855828267}
   m_LocalRotation: {x: -0.6078626, y: -0, z: -0, w: 0.7940423}
-  m_LocalPosition: {x: -51.79, y: 5.07, z: -22.38}
-  m_LocalScale: {x: 3.5832245, y: 4.0833607, z: 1}
+  m_LocalPosition: {x: 1.3200417, y: 3.9672327, z: -3.5450897}
+  m_LocalScale: {x: 3.5832245, y: 4.083362, z: 1}
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_Father: {fileID: 272586196}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -74.87, y: 0, z: 0}
 --- !u!1 &1865482858
 GameObject:
@@ -9584,45 +9175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!1 &1977564566
 GameObject:
   m_ObjectHideFlags: 0
@@ -9723,45 +9275,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 
 --- !u!1 &1988820513
 GameObject:
   m_ObjectHideFlags: 0
@@ -10235,42 +9748,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5512f0ec77abba4abfe765cf2d1d8be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  myRenderer: {fileID: 0}
-  isAchievingTransparency: 0
-  isTransitioning: 0
-  transparencyCallsCounter: 0
-  turnCounter: 0
-  numberOfMaterials: 0
-  timeToTurnTransparent: 1
-  timeToTurnNonTransparent: 1
-  alphaAmountsArray: []
-  useInstancedMaterialsInstead: 0
-  currentTransparencyAmount:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  currentDuration: 0
-  easingMethodToTransparentArray: 
-  easingTypeToTransparentArray: 
-  easingMethodToNonTransparentArray: 
-  easingTypeToNonTransparentArray: 
-  transparentMaterials: []
-  nonTransparentMaterials: []
-  useCutoff: []
-  mySharedMaterials: []
-  alphaStartValues: []
-  myMesh: {fileID: 0}
-  eDisableMesh: 0
-  arrayOfTransformsWithColliders: []
-  tempColorI:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  tempColorJ:
-    r: 0
-    g: 0
-    b: 0
-    a: 0
-  arrayOfTweenIDs: 

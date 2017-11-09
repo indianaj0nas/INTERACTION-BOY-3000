@@ -40,9 +40,10 @@ GameObject:
   - component: {fileID: 95816489834091188}
   - component: {fileID: 64738277792928512}
   - component: {fileID: 136070831954954754}
+  - component: {fileID: 136641386212522016}
   m_Layer: 1
   m_Name: streetlight
-  m_TagString: Untagged
+  m_TagString: climb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -359,3 +360,16 @@ CapsuleCollider:
   m_Height: 11.5
   m_Direction: 2
   m_Center: {x: -0.0042949934, y: -0.01, z: 5.26}
+--- !u!136 &136641386212522016
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800577280853182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.25
+  m_Height: 4.2860265
+  m_Direction: 1
+  m_Center: {x: -0.0042940397, y: 1.79, z: 10.55}

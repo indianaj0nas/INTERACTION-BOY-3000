@@ -190,23 +190,12 @@ public class player_Movement : MonoBehaviour
         RaycastHit hit;
         Debug.DrawRay(hitForward.origin, hitForward.direction * 1);
 
-        if (Physics.Raycast(hitForward, out hit, .9f, 11) && Input.GetButton("PickUP"))
+        if (Physics.Raycast(hitForward, out hit, .9f, 11) && Input.GetButton("PickUP") && hit.transform.tag == "climb")
         {
             climbing = true;
             useGravity = false;
 
-            //Vector3 proj = transform.forward - (Vector3.Dot(transform.forward, hit.normal)) * hit.normal;
-
-            /* Vector3 myForward = Vector3.Cross(hit.normal, Vector3.up);
-             Quaternion targetRotation = Quaternion.LookRotation(myForward, hit.normal);
-             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, turnSpeed);*/
-
-            //transform.LookAt(hit.normal, transform.position);
-
             transform.rotation = Quaternion.LookRotation(-hit.normal);
-
-
-            Debug.Log("Touched wall");
         }
         else { climbing = false; useGravity = true; }
 
@@ -220,8 +209,11 @@ public class player_Movement : MonoBehaviour
                 climbStickInput = climbStickInput.normalized * ((climbStickInput.magnitude - deadzone) / (1 - deadzone));
 
             transform.localPosition = hit.point + hit.normal * 0.5f;
-            transform.localPosition += transform.right * climbStickInput.x * Time.deltaTime * speed;
-            transform.localPosition += transform.up * climbStickInput.y * Time.deltaTime * speed;
+             transform.localPosition += transform.right * climbStickInput.x * Time.deltaTime * speed;
+             transform.localPosition += transform.up * climbStickInput.y * Time.deltaTime * speed;
+
+            if (Input.GetButtonUp("PickUP"))
+                transform.localPosition = hit.point - hit.normal * 1.5f;
         }
     }
 }

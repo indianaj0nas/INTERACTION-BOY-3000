@@ -854,7 +854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 6
   runSpeed: 8
-  groundDistance: 0.52
+  groundDistance: 0.475
   jumpForce: 6
   maxJumpHeight: 4
   minJumpHeight: 0.5
@@ -867,7 +867,7 @@ MonoBehaviour:
   otherTurnSpeed: 5
   Ground:
     serializedVersion: 2
-    m_Bits: 769
+    m_Bits: 4294965195
   drag: {x: 5, y: 0, z: 5}
   sprintDelay: 0
   chest: {fileID: 1446936405}
