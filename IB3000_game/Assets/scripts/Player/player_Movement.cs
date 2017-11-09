@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class player_Movement : MonoBehaviour {
+public class player_Movement : MonoBehaviour
+{
 
 
     public float walkSpeed;
@@ -27,12 +28,25 @@ public class player_Movement : MonoBehaviour {
     private float speed;
     private float maxJumpVelocity;
     private float minJumpVelocity;
+    private Vector3 stickInput;
     private Vector3 velocitySmoothing;
     private Vector3 _velocity;
     private CharacterController _controller;
     private Transform _groundChecker;
+    private Animator anim;
     private bool _isGrounded = true;
+    private bool climbing;
+    private bool useGravity;
 
+    private GameObject player;
+    public Transform chest;
+    public Transform chestIK;
+    public Transform forwardTarget;
+    private Vector3 chestOffset;
+
+    private Vector3 curNormal = Vector3.zero;
+    private Vector3 usedNormal = Vector3.zero;
+    private Quaternion tiltToNormal;
 
     void Awake()
     {
@@ -43,6 +57,7 @@ public class player_Movement : MonoBehaviour {
         maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
         minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
         sprintDelay = 0;
+        useGravity = true;
     }
 
     void Update()
@@ -51,55 +66,63 @@ public class player_Movement : MonoBehaviour {
         Gravity();
         Jump();
         DashDrag();
+        Climbing();
+    }
+
+    private void LateUpdate()
+    {
+        IKtarget();
     }
 
     private void Movement()
     {
-
-        if (Input.GetButton("Run"))
+        if (!climbing)
         {
-            speed = runSpeed;
-            turnSpeed = otherTurnSpeed;
-        }
-        else if (!Input.GetButtonUp("Run"))
-        {
-            speed = walkSpeed;
-            turnSpeed = normalTurnSpeed;
-        }
+            if (Input.GetButton("Run"))
+            {
+                speed = runSpeed;
+                turnSpeed = otherTurnSpeed;
+            }
+            else if (!Input.GetButtonUp("Run"))
+            {
+                speed = walkSpeed;
+                turnSpeed = normalTurnSpeed;
+            }
 
-        float deadzone = 0.5f;
-        Vector3 stickInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        if (stickInput.magnitude < deadzone)
-            stickInput = Vector3.zero;
-        else
-            stickInput = stickInput.normalized * ((stickInput.magnitude - deadzone) / (1 - deadzone));
+            float deadzone = 0.5f;
+            Vector3 stickInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            if (stickInput.magnitude < deadzone)
+                stickInput = Vector3.zero;
+            else
+                stickInput = stickInput.normalized * ((stickInput.magnitude - deadzone) / (1 - deadzone));
 
-        Vector3 targetVelocity = stickInput * speed;
-        _velocity = Vector3.SmoothDamp(_velocity, targetVelocity, ref velocitySmoothing, (_isGrounded) ? accelerationTimeGrounded : accelerationTimeAirborne);
-        //_controller.Move(stickInput * Time.deltaTime * speed);
+            Vector3 targetVelocity = stickInput * speed;
+            _velocity = Vector3.SmoothDamp(_velocity, targetVelocity, ref velocitySmoothing, (_isGrounded) ? accelerationTimeGrounded : accelerationTimeAirborne);
+            //_controller.Move(stickInput * Time.deltaTime * speed);
 
-        if (stickInput != Vector3.zero)
-        {
-            _controller.Move(transform.forward * Time.deltaTime * speed);
-            Quaternion targetRotation = Quaternion.LookRotation(stickInput, Vector3.up);
-        transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
+            if (stickInput != Vector3.zero)
+            {
+                _controller.Move(transform.forward * Time.deltaTime * speed);
+                Quaternion targetRotation = Quaternion.LookRotation(stickInput, Vector3.up);
+                transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, Time.deltaTime * turnSpeed);
+            }
         }
-      
 
     }
 
     void Gravity()
     {
-        _velocity.y += gravity * Time.deltaTime;
-        _controller.Move(_velocity * Time.deltaTime);
+        if (useGravity)
+        {
+            _velocity.y += gravity * Time.deltaTime;
+            _controller.Move(_velocity * Time.deltaTime);
 
-        _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, Ground, QueryTriggerInteraction.Ignore);
-        if (_isGrounded && _velocity.y < 0)
-            _velocity.y = 0f;
+            _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, Ground, QueryTriggerInteraction.Ignore);
+            if (_isGrounded && _velocity.y < 0)
+                _velocity.y = 0f;
 
-        //gravity = (2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
-
-
+            //gravity = (2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+        }
     }
 
     void Jump()
@@ -116,7 +139,7 @@ public class player_Movement : MonoBehaviour {
                 _velocity.y = minJumpVelocity;
         }
 
-        if (Physics.Raycast(transform.position, Vector3.up, 1.4f))
+        if (Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y + .75f, transform.position.z), .55f, 11))
         {
             _velocity.y = 0f;
         }
@@ -128,14 +151,77 @@ public class player_Movement : MonoBehaviour {
     {
         if (Input.GetButtonDown("Run"))
         {
-            Debug.Log("dash");
             _velocity += Vector3.Scale(transform.forward, dashDistance * new Vector3((Mathf.Log(1f / (Time.deltaTime * drag.x + 1)) / -Time.deltaTime),
-                0, 
+                0,
                 (Mathf.Log(1f / (Time.deltaTime * drag.z + 1)) / -Time.deltaTime)));
         }
 
         _velocity.x /= 1 + drag.x * Time.deltaTime;
         _velocity.y /= 1 + drag.y * Time.deltaTime;
         _velocity.z /= 1 + drag.z * Time.deltaTime;
+    }
+
+    void IKtarget()
+    {
+        if (!climbing)
+        {
+            chest.LookAt(chestIK.position);
+            chestOffset = new Vector3(0, 0, -90);
+        }
+        else
+        {
+            chestOffset = new Vector3(0, 0, 0);
+        }
+        
+        chest.rotation = chest.rotation * Quaternion.Euler(chestOffset);
+
+        float rotateDist = Vector3.Distance(chestIK.position, forwardTarget.position);
+
+        /*chestIK.transform.position = (chestIK.position - forwardTarget.transform.position).normalized * 1.4f + forwardTarget.transform.position;
+        chestIK.transform.position = Vector3.MoveTowards(chestIK.transform.position, forwardTarget.position, Time.deltaTime * turnSpeed / 2);
+        Vector3  chestPos = chestIK.transform.position;
+        chestPos.y = transform.position.y;
+        chestIK.position = chestPos;*/
+    }
+
+    void Climbing()
+    {
+        Ray hitForward = new Ray(transform.position, transform.forward);
+        RaycastHit hit;
+        Debug.DrawRay(hitForward.origin, hitForward.direction * 1);
+
+        if (Physics.Raycast(hitForward, out hit, .9f, 11) && Input.GetButton("PickUP"))
+        {
+            climbing = true;
+            useGravity = false;
+
+            //Vector3 proj = transform.forward - (Vector3.Dot(transform.forward, hit.normal)) * hit.normal;
+
+            /* Vector3 myForward = Vector3.Cross(hit.normal, Vector3.up);
+             Quaternion targetRotation = Quaternion.LookRotation(myForward, hit.normal);
+             transform.rotation = Quaternion.Lerp(transform.rotation, targetRotation, turnSpeed);*/
+
+            //transform.LookAt(hit.normal, transform.position);
+
+            transform.rotation = Quaternion.LookRotation(-hit.normal);
+
+
+            Debug.Log("Touched wall");
+        }
+        else { climbing = false; useGravity = true; }
+
+        if (climbing)
+        {
+            float deadzone = 0.5f;
+            Vector3 climbStickInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0);
+            if (climbStickInput.magnitude < deadzone)
+                climbStickInput = Vector3.zero;
+            else
+                climbStickInput = climbStickInput.normalized * ((climbStickInput.magnitude - deadzone) / (1 - deadzone));
+
+            transform.localPosition = hit.point + hit.normal * 0.5f;
+            transform.localPosition += transform.right * climbStickInput.x * Time.deltaTime * speed;
+            transform.localPosition += transform.up * climbStickInput.y * Time.deltaTime * speed;
+        }
     }
 }

@@ -39,7 +39,8 @@ GameObject:
   - component: {fileID: 23450371570318602}
   - component: {fileID: 95816489834091188}
   - component: {fileID: 64738277792928512}
-  m_Layer: 0
+  - component: {fileID: 136070831954954754}
+  m_Layer: 1
   m_Name: streetlight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57,13 +58,13 @@ GameObject:
   - component: {fileID: 33766804674523182}
   - component: {fileID: 65770939532965976}
   - component: {fileID: 23018467336028046}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Climb Area (1)
   m_TagString: climb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1995679670638376
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,13 +76,13 @@ GameObject:
   - component: {fileID: 33188075196628388}
   - component: {fileID: 65689949072346638}
   - component: {fileID: 23026316609369100}
-  m_Layer: 0
+  m_Layer: 1
   m_Name: Climb Area
   m_TagString: climb
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4123346611330816
 Transform:
   m_ObjectHideFlags: 1
@@ -102,7 +103,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1800577280853182}
   m_LocalRotation: {x: -0.000002067192, y: 0.70710593, z: 0.7071077, w: 0.0000021053454}
-  m_LocalPosition: {x: 14.671404, y: -9.028582, z: 4.0000625}
+  m_LocalPosition: {x: -14.214309, y: -9.02858, z: 3.9998925}
   m_LocalScale: {x: 1.1159095, y: 1.1159098, z: 1.1159098}
   m_Children:
   - {fileID: 4288409139268140}
@@ -262,7 +263,7 @@ MeshCollider:
   m_GameObject: {fileID: 1800577280853182}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_InflateMesh: 0
@@ -341,21 +342,20 @@ Light:
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 8
-  m_FalloffTable:
-    m_Table[0]: 0
-    m_Table[1]: 0
-    m_Table[2]: 0
-    m_Table[3]: 0
-    m_Table[4]: 0
-    m_Table[5]: 0
-    m_Table[6]: 0
-    m_Table[7]: 0
-    m_Table[8]: 0
-    m_Table[9]: 0
-    m_Table[10]: 0
-    m_Table[11]: 0
-    m_Table[12]: 0
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!136 &136070831954954754
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1800577280853182}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4
+  m_Height: 11.5
+  m_Direction: 2
+  m_Center: {x: -0.0042949934, y: -0.01, z: 5.26}

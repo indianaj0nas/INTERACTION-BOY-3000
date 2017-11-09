@@ -187,7 +187,7 @@ public class PickUp : MonoBehaviour {
 			if (liftThis.layer == 8 || liftThis.layer == 9) 
 			{
 
-                liftThis.transform.position = transform.position + transform.forward * 1.5f;
+                liftThis.transform.position = transform.position + transform.forward * 3f;
 
                 liftThis.transform.parent = null;
 				//liftThis = null;
