@@ -347,7 +347,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 496352727}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 1.1
   m_Height: 0
   m_Direction: 1
@@ -854,6 +854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 6
   runSpeed: 8
+  climbSpeed: 3.5
   groundDistance: 0.475
   jumpForce: 6
   maxJumpHeight: 4
@@ -882,7 +883,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 1507565685}
   m_Material: {fileID: 13400000, guid: c504f85de39590049b4a130f7bddd4a7, type: 2}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.5
   m_Height: 2.0424871
   m_Direction: 1
@@ -894,8 +895,8 @@ Transform:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1507565685}
-  m_LocalRotation: {x: -0, y: -1, z: -0, w: 0.000000104308114}
-  m_LocalPosition: {x: -36.56, y: -1, z: -16.07}
+  m_LocalRotation: {x: -0, y: -1, z: 0, w: -0.0000001872535}
+  m_LocalPosition: {x: -36.56, y: 0.72, z: -16.07}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 135984178}

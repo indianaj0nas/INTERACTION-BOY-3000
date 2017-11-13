@@ -8,6 +8,7 @@ public class player_Movement : MonoBehaviour
 
     public float walkSpeed;
     public float runSpeed;
+    public float climbSpeed;
     public float groundDistance;
     public float jumpForce;
     public float maxJumpHeight = 2f;
@@ -116,6 +117,7 @@ public class player_Movement : MonoBehaviour
         {
             _velocity.y += gravity * Time.deltaTime;
             _controller.Move(_velocity * Time.deltaTime);
+           // transform.Translate(_velocity * Time.deltaTime);
 
             _isGrounded = Physics.CheckSphere(_groundChecker.position, groundDistance, Ground, QueryTriggerInteraction.Ignore);
             if (_isGrounded && _velocity.y < 0)
@@ -190,12 +192,16 @@ public class player_Movement : MonoBehaviour
         RaycastHit hit;
         Debug.DrawRay(hitForward.origin, hitForward.direction * 1);
 
-        if (Physics.Raycast(hitForward, out hit, .9f, 11) && Input.GetButton("PickUP") && hit.transform.tag == "climb")
-        {
+        if (Physics.SphereCast(hitForward, .2f, out hit, 1.3f, 11) && Input.GetButton("PickUP") && hit.transform.tag == "climb")
+            //if (Physics.Raycast(hitForward, out hit, 1.3f, 11) && Input.GetButton("PickUP") && hit.transform.tag == "climb")
+            {
             climbing = true;
             useGravity = false;
 
-            transform.rotation = Quaternion.LookRotation(-hit.normal);
+            Vector3 normalRotation;
+
+            normalRotation = new Vector3(hit.normal.x, hit.normal.y, hit.normal.z);
+            transform.rotation = Quaternion.LookRotation(-normalRotation);
         }
         else { climbing = false; useGravity = true; }
 
@@ -209,8 +215,9 @@ public class player_Movement : MonoBehaviour
                 climbStickInput = climbStickInput.normalized * ((climbStickInput.magnitude - deadzone) / (1 - deadzone));
 
             transform.localPosition = hit.point + hit.normal * 0.5f;
-             transform.localPosition += transform.right * climbStickInput.x * Time.deltaTime * speed;
-             transform.localPosition += transform.up * climbStickInput.y * Time.deltaTime * speed;
+
+            transform.localPosition += transform.right * climbStickInput.x * Time.deltaTime * climbSpeed;
+            transform.localPosition += transform.up * climbStickInput.y * Time.deltaTime * climbSpeed;
 
             if (Input.GetButtonUp("PickUP"))
                 transform.localPosition = hit.point - hit.normal * 1.5f;
