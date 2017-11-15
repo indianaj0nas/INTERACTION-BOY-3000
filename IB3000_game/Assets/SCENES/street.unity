@@ -2219,7 +2219,7 @@ Prefab:
     - target: {fileID: 114987088414563300, guid: 69d4909677e5633458176fee68f5ae0e,
         type: 2}
       propertyPath: unloadName
-      value: shop
+      value: shop_updated
       objectReference: {fileID: 0}
     - target: {fileID: 4517622104768930, guid: 69d4909677e5633458176fee68f5ae0e, type: 2}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -8929,7 +8929,7 @@ Prefab:
     - target: {fileID: 114987088414563300, guid: 69d4909677e5633458176fee68f5ae0e,
         type: 2}
       propertyPath: loadName
-      value: shop
+      value: shop_updated
       objectReference: {fileID: 0}
     - target: {fileID: 114987088414563300, guid: 69d4909677e5633458176fee68f5ae0e,
         type: 2}

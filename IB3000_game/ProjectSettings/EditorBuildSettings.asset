@@ -17,6 +17,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SCENES/street.unity
     guid: dd3086d29098bb1438689af39d16af3b
-  - enabled: 1
+  - enabled: 0
     path: Assets/SCENES/shop_first.unity
     guid: 8b67b0a60cdd5684c88ad14abc678d32
+  - enabled: 1
+    path: Assets/SCENES/The Player etc.unity
+    guid: f936a6669bd957149a733f9fe8b56e80
+  - enabled: 1
+    path: Assets/SCENES/shop_updated.unity
+    guid: ff9cef863862abf4097d669beb506737
