@@ -29,6 +29,7 @@ public class player_Movement : MonoBehaviour
     private float speed;
     private float maxJumpVelocity;
     private float minJumpVelocity;
+    private float climbRotationSpeed;
     private Vector3 stickInput;
     private Vector3 velocitySmoothing;
     private Vector3 _velocity;
@@ -141,12 +142,18 @@ public class player_Movement : MonoBehaviour
                 _velocity.y = minJumpVelocity;
         }
 
-        if (Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y + .75f, transform.position.z), .55f, 11))
+        if (Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y + .9f, transform.position.z), .55f, 11))
         {
             _velocity.y = 0f;
         }
         //gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(_groundChecker.position, groundDistance);
     }
 
     void DashDrag()
@@ -200,8 +207,7 @@ public class player_Movement : MonoBehaviour
              Vector3 normalRotation;
 
             normalRotation = new Vector3(hit.normal.x, hit.normal.y, hit.normal.z);
-             transform.rotation = Quaternion.LookRotation(-normalRotation, transform.up);
-            //transform.localEulerAngles = new Vector3(hit.normal.x, hit.normal.y, hit.normal.z);
+            transform.rotation = Quaternion.LookRotation(-normalRotation, transform.up);
         }
         else { climbing = false; useGravity = true; }
 
@@ -216,16 +222,24 @@ public class player_Movement : MonoBehaviour
 
             transform.localPosition = hit.point + hit.normal * 0.5f;
 
+
+            //set layer to TransparentFX on ladders
+            if (hit.transform.gameObject.layer != 0)
+                climbRotationSpeed = 0;
+            if (hit.transform.gameObject.layer == 0)
+                climbRotationSpeed = 40;
+
             Vector3 playerRotation = transform.localEulerAngles;
-            playerRotation.z -= climbStickInput.x * Time.deltaTime * climbSpeed * 40;
+            playerRotation.z -= climbStickInput.x * Time.deltaTime * climbSpeed * climbRotationSpeed;
 
             transform.eulerAngles = playerRotation;
 
             //transform.localPosition += transform.right * climbStickInput.x * Time.deltaTime * climbSpeed;
+
             transform.localPosition += transform.up * climbStickInput.y * Time.deltaTime * climbSpeed;
 
             if (Input.GetButtonUp("PickUP"))
-                transform.localPosition = hit.point - hit.normal * 1.5f;
+                transform.localPosition = hit.point - hit.normal * 3f;
         }
     }
 }
