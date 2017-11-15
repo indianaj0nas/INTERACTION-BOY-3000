@@ -198,10 +198,21 @@ public class player_Movement : MonoBehaviour
             climbing = true;
             useGravity = false;
 
-            Vector3 normalRotation;
+             Vector3 normalRotation;
 
-            normalRotation = new Vector3(hit.normal.x, hit.normal.y, hit.normal.z);
-            transform.rotation = Quaternion.LookRotation(-normalRotation);
+             normalRotation = new Vector3(hit.normal.x, hit.normal.y, hit.normal.z);
+             transform.rotation = Quaternion.LookRotation(-normalRotation);
+
+           // m_MyQuaternion.SetFromToRotation(transform.position, hit.normal.transform.position);
+
+            /*Vector3 normal = hit.normal;
+
+            Quaternion q1 = Quaternion.AngleAxis(0, normal);
+            Quaternion q2 = Quaternion.FromToRotation(Vector3.up, normal);
+            Quaternion quat = q1 * q2;
+
+            transform.position = hit.point + normal * 0.5f;
+            transform.rotation = quat;*/
         }
         else { climbing = false; useGravity = true; }
 
@@ -216,8 +227,8 @@ public class player_Movement : MonoBehaviour
 
             transform.localPosition = hit.point + hit.normal * 0.5f;
 
-            transform.localPosition += transform.right * climbStickInput.x * Time.deltaTime * climbSpeed;
-            transform.localPosition += transform.up * climbStickInput.y * Time.deltaTime * climbSpeed;
+           transform.localPosition += transform.right * climbStickInput.x * Time.deltaTime * climbSpeed;
+           transform.localPosition += transform.up * climbStickInput.y * Time.deltaTime * climbSpeed;
 
             if (Input.GetButtonUp("PickUP"))
                 transform.localPosition = hit.point - hit.normal * 1.5f;
