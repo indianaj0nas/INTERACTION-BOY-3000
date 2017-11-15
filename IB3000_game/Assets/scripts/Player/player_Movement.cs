@@ -216,9 +216,12 @@ public class player_Movement : MonoBehaviour
 
             transform.localPosition = hit.point + hit.normal * 0.5f;
 
-            Vector3 charRotation = transform.localEulerAngles;
+            Vector3 playerRotation = transform.localEulerAngles;
+            playerRotation.z -= climbStickInput.x * Time.deltaTime * climbSpeed * 40;
 
-            transform.localPosition += transform.right * climbStickInput.x * Time.deltaTime * climbSpeed;
+            transform.eulerAngles = playerRotation;
+
+            //transform.localPosition += transform.right * climbStickInput.x * Time.deltaTime * climbSpeed;
             transform.localPosition += transform.up * climbStickInput.y * Time.deltaTime * climbSpeed;
 
             if (Input.GetButtonUp("PickUP"))
